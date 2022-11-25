@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<h1>Home page</h1>
+<p>This is a home page!</p>
+<img src="{{ url_for('static', filename='images/python.png') }}" alt="Python" style="width: 200px;">
+{% for user in user_list %}
+<p>Name: <b>{{ user.name }}</b></p>
+<p>Email: <b>{{ user.email }}</b></p>
+<br>
+{% endfor %}
+{% endblock %}

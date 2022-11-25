@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+<form action="#" method="post">
+    <h1>Hello {{ name }}</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for msg in messages %}
+                <p>{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+        <label>
+            {% if email == '' %}
+                Please enter email:
+            {% else %}
+                Is this your email?
+            {% endif %}
+        </label><br>
+        <input type="email" name="em" value="{{ email if email }}">
+        <input type="submit" value="Submit">
+    </form>
+    <p><a href="/delete" style="color:red;">Delete user</a></p>
+{% endblock %}
